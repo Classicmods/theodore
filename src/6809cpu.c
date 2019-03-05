@@ -37,14 +37,14 @@ unsigned short dc6809_pc; //program counter
 static short dc6809_d;    //D register
 short dc6809_x;    //X register
 short dc6809_y;    //Y register
-static short dc6809_u;    //U register
-static short dc6809_s;    //S register
+short dc6809_u;    //U register
+short dc6809_s;    //S register
 static short dc6809_da;   //direct address (DP register = high byte of direct address)
 
 //pointers to register bytes
 char *dc6809_a;    //pointer to A register
 char *dc6809_b;    //pointer to B register
-static char *dc6809_dp;   //pointer to DP register
+char *dc6809_dp;   //pointer to DP register
 static char *dc6809_dd;   //pointer to direct address low byte
 static char *dc6809_pch;  //pointer to PC low byte
 static char *dc6809_pcl;  //pointer to PC high byte
@@ -636,7 +636,7 @@ static int Firq(void) //fast interrupt request
   else return 0;
 }
 
-static int Irq(void) //interrupt request
+int Irq(void) //interrupt request
 {
   if(dc6809_sync == 1) dc6809_sync = 2; //si attente synchro, indicateur d'interruption
   if((CC & CC_I) == 0)          //si les IRQs ne sont pas masquees
@@ -697,7 +697,7 @@ int Run6809(void)
   //lecture du code de l'instruction
   while(1)
   {
-    code = GETC(PC) & 0xff; PC++;
+    code = GETC(PC++) & 0xff;
     if(code == 0x10) {precode = 0x1000; continue;}
     if(code == 0x11) {precode = 0x1100; continue;}
     code |= precode; break;

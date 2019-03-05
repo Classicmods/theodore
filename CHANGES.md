@@ -1,6 +1,35 @@
-Next release
+Next Release
+===========
+* Fix sound in some games (#8).
+* Add emulation of illegal opcode 0x11F1. Fixes some MO5 games (#10).
+* Add core option to break on illegal opcodes in the debugger.
+* Fix keyboard emulation (#11).
+* MO5: add heuristic to choose between RUN" and LOADM"",,R for autorun (#9).
+* Add auto-detection of the Thomson model based on the content filename.
+* Change mapping of virtual keyboard: now Start button starts the program and Select button simulates a keystroke.
+* Fix save state/rewind during tape loading.
+* Add support for so called "Classic platforms" in Makefile.
+
+Release 1.6 (2019/02/05)
+===========
+* Add MO5 emulation.
+* A more complex heuristic is used to start the game when the 'B' button of the gamepad is pressed, depending on the media type and of the emulated computer (cf. README file for more info).
+* Add core option to autorun the game.
+* Remove custom cheat code management (useless since RetroArch 1.7.4 and its built-in cheat code feature).
+
+Release 1.5 (2018/12/29)
+===========
+* Add TO9 emulation.
+* On TO9, the 'B' button of the gamepad simulates a keystroke on the 'D' key of the keyboard (BASIC 128), instead of the 'B' key for TO8/TO8D/TO9+ (BASIC 512).
+* Fix Caps Lock emulation.
+* Fix cartridge/tape no longer working after reset or change of Thomson version.
+* Fix tape drive emulation.
+* Fix MSVC2005/2008 build.
+
+Release 1.4 (2018/11/24)
 ===========
 * Add TO9+ emulation.
+* Add support for Nintendo Switch platform.
 
 Release 1.3 (2018/08/13)
 ===========
